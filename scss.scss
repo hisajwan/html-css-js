@@ -1,0 +1,68 @@
+@import "./scssvar.scss";
+
+.radius {
+  border-radius: 4px;
+}
+
+.bgmain {
+  height: 100%;
+}
+
+$desktop: 840px;
+@mixin desktop() {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+body {
+  margin: 0px;
+  #bg {
+    @extend .bgmain;
+    @include desktop {
+      clip-path: polygon(0 0, 79% 0, 51% 100%, 0% 100%);
+    }
+    width: 100%;
+    clip-path: polygon(100% 0, 100% 73%, 58% 100%, 0 100%, 0 0);
+    background: map-get($map: $colors, $key: primary);
+    position: absolute;
+    z-index: -1;
+  }
+  main {
+    @include desktop {
+      display: grid;
+      grid-template-columns: 50% auto;
+      grid-template-areas: "primary secondary";
+    }
+    @extend .bgmain;
+    padding: 20px;
+  }
+
+  section#primary {
+    @include desktop {
+      grid-area: secondary;
+      height: fit-content;
+      align-self: center;
+      margin: 1em;
+      width: 70%;
+    }
+    @extend .radius;
+    width: max-content;
+    min-width: 300px;
+    background-color: map-get($map: $colors, $key: primary-light);
+  }
+
+  section#secondary {
+    @include desktop {
+      grid-area: primary;
+      height: fit-content;
+      align-self: center;
+      margin: 1em;
+      width: 70%;
+    }
+    @extend .radius;
+    width: max-content;
+    min-width: 300px;
+    background-color: map-get($map: $colors, $key: primary-light);
+  }
+}

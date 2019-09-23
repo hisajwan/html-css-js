@@ -1,0 +1,86 @@
+.radius, body section#primary, body section#secondary {
+  border-radius: 4px;
+}
+
+.bgmain, body #bg, body main {
+  height: 100%;
+}
+
+body {
+  margin: 0px;
+}
+
+body #bg {
+  width: 100%;
+  -webkit-clip-path: polygon(100% 0, 100% 73%, 58% 100%, 0 100%, 0 0);
+          clip-path: polygon(100% 0, 100% 73%, 58% 100%, 0 100%, 0 0);
+  background: blue;
+  position: absolute;
+  z-index: -1;
+}
+
+@media (min-width: 840px) {
+  body #bg {
+    -webkit-clip-path: polygon(0 0, 79% 0, 51% 100%, 0% 100%);
+            clip-path: polygon(0 0, 79% 0, 51% 100%, 0% 100%);
+  }
+}
+
+body main {
+  padding: 20px;
+}
+
+@media (min-width: 840px) {
+  body main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
+        grid-template-areas: "primary secondary";
+  }
+}
+
+body section#primary {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 300px;
+  background-color: #ccccff;
+}
+
+@media (min-width: 840px) {
+  body section#primary {
+    grid-area: secondary;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1em;
+    width: 70%;
+  }
+}
+
+body section#secondary {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 300px;
+  background-color: #ccccff;
+}
+
+@media (min-width: 840px) {
+  body section#secondary {
+    grid-area: primary;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 1em;
+    width: 70%;
+  }
+}
+/*# sourceMappingURL=scss.css.map */
